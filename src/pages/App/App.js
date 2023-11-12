@@ -17,6 +17,10 @@ import Home from '../Home/Home';
 export default function App() {
   const [user, setUser] = useState(getUser());
 
+  const updateUser = (user) => {
+    setUser(user)
+  }
+
   return (
     <main className="App">
       {/* { user ?
@@ -32,16 +36,17 @@ export default function App() {
       } */}
       {
         <>
-          <NavBar user={user} setUser={setUser} />
+          <NavBar user={user} updateUser={updateUser} />
           <Routes>
             <Route path="/" element={<Home user={user} />} />
-            <Route path="/orders/new" element={<NewOrderPage user={user} />} />
+            <Route path="/shoppingCart" element={<NewOrderPage user={user} />} />
             <Route path="/orders" element={<OrderHistoryPage user={user} />} />
-            
+            <Route path="/login" element={<AuthPage updateUser={updateUser}/>} />
+
             <Route path='/*' element={<Home user={user} />} />
           </Routes>
         </>
-        // <AuthPage setUser={setUser}/>
+        
       }
     </main>
   );

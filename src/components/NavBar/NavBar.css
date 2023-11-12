@@ -1,0 +1,28 @@
+.NavBar.navbar {
+    background-color: salmon;
+}
+
+.NavBar.navbar .navbar-brand {
+    font-weight: 700;
+}
+
+.NavBar.navbar .navbar-nav {
+    width: 60%;
+    /* display: flex; */
+    justify-content: flex-end;
+}
+
+.NavBar.navbar .navbar-nav button {
+    text-align: left;
+}
+
+.NavBar.navbar .search {
+    /* width: 10%; */
+    /* background-color: blue; */
+    margin-left: 50px;
+    justify-content: flex-end;
+}
+
+.NavBar.navbar .nav-link {
+    font-weight: 600;
+}
