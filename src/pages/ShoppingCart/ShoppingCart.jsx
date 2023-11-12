@@ -1,5 +1,11 @@
+import './ShoppingCart.css'
+
 export default function ShoppingCart() {
   return (
-    <h1>Shopping Cart</h1>
+    <div className="ShoppingCart">
+      <br /><br />
+      <h3>Shopping Cart</h3>
+    </div>
+    
   );
 }

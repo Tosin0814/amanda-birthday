@@ -10,7 +10,7 @@ export default function NavBar({ user, updateUser }) {
   }
 
   return (
-    <nav className='NavBar navbar navbar-expand-sm '>
+    <nav className='NavBar navbar position-fixed navbar-expand-sm '>
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">Tee Store</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

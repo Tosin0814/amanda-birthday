@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 // Components
 import Login from '../Login/Login';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import OrderHistory from '../OrderHistoryPage/OrderHistory';
 import NavBar from '../../components/NavBar/NavBar';
 
 // Helpers
@@ -41,7 +41,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home user={user} />} />
             <Route path="/shoppingCart" element={<ShoppingCart user={user} />} />
-            <Route path="/orders" element={<OrderHistoryPage user={user} />} />
+            <Route path="/orders" element={<OrderHistory user={user} />} />
             <Route path="/login" element={<Login updateUser={updateUser}/>} />
             <Route path="/signup" element={<Signup updateUser={updateUser}/>} />
 

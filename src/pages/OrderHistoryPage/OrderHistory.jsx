@@ -1,14 +1,16 @@
+import './OrderHistory.css'
 import { checkToken } from "../../utilities/services/users";
 
-export default function OrderHistoryPage(props) {
+export default function OrderHistory({}) {
   async function handleCheckToken(){
     const expDate = await checkToken()
     console.log(expDate)
   }
 
   return (
-    <>
-      <h1>OrderHistoryPage</h1>
+    <div className="OrderHistory">
+      <br /><br />
+      <h3>OrderHistoryPage</h3>
       <button onClick={handleCheckToken}>Check When My Login Expires</button>
-    </>
+    </div>
   );}

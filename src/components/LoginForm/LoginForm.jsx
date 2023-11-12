@@ -1,8 +1,9 @@
+import './LoginForm.css'
 import { useState } from 'react';
 import { login } from '../../utilities/services/users'
 
 const defaultState = {
-    name: '',
+    email: '',
     password: '',
     error: ''
 }
@@ -10,21 +11,15 @@ const defaultState = {
 export default function LoginForm({ updateUser }) {
     const [formData, setFormData] = useState(defaultState)
 
-    const { email, password, error } = formData;
 
-    const handleSubmit = async (e) => {
-        // when we submit we basically just grab whatever we have in
-        // the state.
-        e.preventDefault();
-
+    const handleSubmit = async (evt) => {
+        evt.preventDefault();
+        const data = {
+            email: formData.email,
+            password: formData.password
+        }
         try {
-            const {  password, email } = formData;
-            const data = {  password, email }
-
             const user = await login(data)
-            // as soon as we get the decoded data from the creat account api call
-            // (derived fromt he jwt in local storage), we can update app.js to store
-            // user in state
             updateUser(user)
         } catch (err) {
             setFormData({
@@ -35,30 +30,30 @@ export default function LoginForm({ updateUser }) {
     }
 
     function handleChange(evt) {
-        // Replace with new object and use a computed property
-        // to update the correct property
         const newFormData = {
-            ...formData, // use the existing formData
-            [evt.target.name]: evt.target.value, // override whatever key with the current fieldd's value
-            error: '' // clear any old errors as soon as the user interacts with the form
+            ...formData,
+            [evt.target.name]: evt.target.value,
+            error: ''
         };
         setFormData(newFormData);
     }
 
-    const disabled = !email || !password
+    const disabled = !formData.email || !formData.password
 
     return <div className='LoginForm'>
         <div className="form-container">
             <form onSubmit={handleSubmit} autoComplete="off">
-                <label htmlFor="login-email">Email</label>
-                <input type="text" name="email" id="login-email" value={email} onChange={handleChange} required />
-
-                <label htmlFor="login-password">Password</label>
-                <input type="password" name="password" id="login-password" value={password} onChange={handleChange} required />
-
-                <button type="submit" disabled={disabled}>Log In</button>
+                <div className='mb-3'>
+                    <label className='form-label' htmlFor="login-email">Email</label>
+                    <input className='form-control' type="text" name="email" id="login-email" value={formData.email} onChange={handleChange} required />
+                </div>
+                <div className='mb-3'>
+                    <label className='form-label' htmlFor="login-password">Password</label>
+                    <input className='form-control' type="password" name="password" id="login-password" value={formData.password} onChange={handleChange} required />
+                </div>
+                <button className='btn btn-primary' type="submit" disabled={disabled}>Log In</button>
             </form>
         </div>
-        {error && <p className="error-message">&nbsp;{error}</p>}
+        {formData.error && <p className="error-message">&nbsp;{formData.error}</p>}
     </div>
 }

@@ -1,33 +1,33 @@
+import './SignupForm.css'
 import { useState } from 'react';
 import { signUp } from '../../utilities/services/users'
+import { useNavigate } from 'react-router-dom';
 
 const defaultState = {
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
     confirm: '',
     error: ''
 }
 
-export default function SignUpForm({ updateUser }){
+export default function SignupForm({ updateUser }){
     const [formData, setFormData] = useState(defaultState)
-
-    const { name, email, password, confirm, error } = formData;
-
-    const handleSubmit = async (e) =>{
-        // when we submit we basically just grab whatever we have in
-        // the state.
-        e.preventDefault();
-
+    const navigate = useNavigate()
+    const handleSubmit = async (evt) =>{
+        evt.preventDefault();
         try{
-            const { name, password, email } = formData;
-            const data = {name, password, email}
-
-            const user = await signUp(data)
-            // as soon as we get the decoded data from the creat account api call
-            // (derived fromt he jwt in local storage), we can update app.js to store
-            // user in state
-            updateUser(user)
+            const data = {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                email: formData.email,
+                password: formData.password
+            }
+            console.log(data)
+            // const user = await signUp(data)
+            // updateUser(user)
+            // navigate('/')
         }catch (err) {
             setFormData({
                 ...formData,
@@ -36,44 +36,43 @@ export default function SignUpForm({ updateUser }){
         }
     }
 
-
-    // const handleChange = (e) => {
-    //     const newFormData = { ...formData, [e.target.name]: e.target.value }
-    //     window.alert( JSON.stringify(newFormData ) )
-    //     setFormData(newFormData)
-    // }
-
     function handleChange(evt) {
-        // Replace with new object and use a computed property
-        // to update the correct property
         const newFormData = {
-            ...formData, // use the existing formData
-            [evt.target.name]: evt.target.value, // override whatever key with the current fieldd's value
-            error: '' // clear any old errors as soon as the user interacts with the form
+            ...formData, 
+            [evt.target.name]: evt.target.value, 
+            error: ''
         };
         setFormData(newFormData);
     }
 
-    const disabled = (password !== confirm) || !name || !email || !password || !confirm
+    const disabled = (formData.password !== formData.confirm) || !formData.firstName || !formData.lastName || !formData.email || !formData.password || !formData.confirm
 
-    return <div className='SignUpForm'>
+    return <div className='SignupForm'>
             <div className="form-container">
                 <form onSubmit={handleSubmit} autoComplete="off">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" name="name" id="name" value={name} onChange={handleChange} required/>
-
-                    <label htmlFor="email">Email</label>
-                    <input type="text" name="email" id="email" value={email} onChange={handleChange} required />
-
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" value={password} onChange={handleChange} required />
-
-                    <label htmlFor="confirm">Confirm Password</label>
-                    <input type="password" name="confirm" id="confirm" value={confirm} onChange={handleChange} required />
-
-                    <button type="submit" disabled={disabled}>Sign up</button>
+                    <div className='mb-3'>
+                        <label htmlFor="firstName" className='form-label'>First Name</label>
+                        <input className='form-control' type="text" name="firstName" id="firstName" value={formData.firstName} onChange={handleChange} required/>
+                    </div>
+                    <div className='mb-3'>
+                        <label htmlFor="lastName" className='form-label'>Last Name</label>
+                        <input className='form-control' type="text" name="lastName" id="lastName" value={formData.lastName} onChange={handleChange} required/>
+                    </div>
+                    <div className='mb-3'>
+                        <label htmlFor="email" className='form-label'>Email</label>
+                        <input className='form-control' type="text" name="email" id="email" value={formData.email} onChange={handleChange} required />
+                    </div>
+                    <div className='mb-3'>
+                        <label htmlFor="password" className='form-label'>Password</label>
+                        <input className='form-control' type="password" name="password" id="password" value={formData.password} onChange={handleChange} required />
+                    </div>
+                    <div className='mb-3'>
+                        <label htmlFor="confirm" className='form-label'>Confirm Password</label>
+                        <input className='form-control' type="password" name="confirm" id="confirm" value={formData.confirm} onChange={handleChange} required />
+                    </div>
+                    <button className='btn btn-primary' type="submit" disabled={disabled}>Sign up</button>
                 </form>
             </div>
-            {error && <p className="error-message">&nbsp;{error}</p>}
+            {formData.error && <p className="error-message">&nbsp;{formData.error}</p>}
         </div>
 }

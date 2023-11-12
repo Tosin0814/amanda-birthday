@@ -4,7 +4,18 @@ const Schema = mongoose.Schema;
 const SALT_ROUNDS = 6;
 
 const userSchema = new Schema({
-    name: { type: String, required: true },
+    firstName: { 
+        type: String, 
+        lowercase: true, 
+        trim: true,
+        required: true 
+    },
+    lastName: { 
+        type: String, 
+        lowercase: true, 
+        trim: true,
+        required: true 
+    },
     email: {
         type: String,
         unique: true,
@@ -15,7 +26,7 @@ const userSchema = new Schema({
     password: {
         type: String,
         trim: true,
-        minLength: 3,
+        minLength: 5,
         required: true
     }
 }, {
