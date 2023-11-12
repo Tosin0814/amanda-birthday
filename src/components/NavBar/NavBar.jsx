@@ -18,17 +18,15 @@ export default function NavBar({ user, updateUser }) {
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <div className='navbar-nav'>
-            <NavLink className="nav-link"to={`/`}>Home</NavLink>          
+            <NavLink className="nav-link"to={`/`}>Home</NavLink>       
+            <NavLink className="nav-link" to="/orders">Orders</NavLink>
+            <NavLink className="nav-link" to="/shoppingCart">Shopping Cart</NavLink>   
             { user ?
             <>
-              <NavLink className="nav-link" to="/login">Orders</NavLink>
-              <NavLink className="nav-link" to="/login">Shopping Cart</NavLink>
               <NavLink className="nav-link" to='/login'>Login</NavLink>
             </>
             :
             <>
-              <NavLink className="nav-link" to="/orders">Orders</NavLink>
-              <NavLink className="nav-link" to="/shoppingCart">Shopping Cart</NavLink>
               <button className="nav-link" onClick={handleLogOut}>Log Out</button>
             </>
             }
