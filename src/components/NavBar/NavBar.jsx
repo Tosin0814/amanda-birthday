@@ -21,7 +21,7 @@ export default function NavBar({ user, updateUser }) {
             <NavLink className="nav-link"to={`/`}>Home</NavLink>       
             <NavLink className="nav-link" to="/orders">Orders</NavLink>
             <NavLink className="nav-link" to="/shoppingCart">Shopping Cart</NavLink>   
-            { user ?
+            { !user ?
             <>
               <NavLink className="nav-link" to='/login'>Login</NavLink>
             </>

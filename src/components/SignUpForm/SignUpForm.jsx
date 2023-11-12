@@ -9,7 +9,7 @@ const defaultState = {
     error: ''
 }
 
-export default function SignUpForm({ setUser }){
+export default function SignUpForm({ updateUser }){
     const [formData, setFormData] = useState(defaultState)
 
     const { name, email, password, confirm, error } = formData;
@@ -27,7 +27,7 @@ export default function SignUpForm({ setUser }){
             // as soon as we get the decoded data from the creat account api call
             // (derived fromt he jwt in local storage), we can update app.js to store
             // user in state
-            setUser(user)
+            updateUser(user)
         }catch (err) {
             setFormData({
                 ...formData,
