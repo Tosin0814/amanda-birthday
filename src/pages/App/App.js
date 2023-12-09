@@ -18,6 +18,8 @@ import Signup from '../Signup/Signup';
 export default function App() {
   const [user, setUser] = useState(getUser());
 
+  // console.log(user)
+
   const updateUser = (user) => {
     setUser(user)
   }
@@ -42,8 +44,8 @@ export default function App() {
             <Route path="/" element={<Home user={user} />} />
             <Route path="/shoppingCart" element={<ShoppingCart user={user} />} />
             <Route path="/orders" element={<OrderHistory user={user} />} />
-            <Route path="/login" element={<Login updateUser={updateUser}/>} />
-            <Route path="/signup" element={<Signup updateUser={updateUser}/>} />
+            <Route path="/login" element={<Login updateUser={updateUser} user={user} />} />
+            <Route path="/signup" element={<Signup updateUser={updateUser} user={user} />} />
 
             <Route path='/*' element={<Home user={user} />} />
           </Routes>

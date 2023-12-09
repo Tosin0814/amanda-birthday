@@ -19,7 +19,7 @@ async function login(req, res, next) {
         const user = await User.findOne({email})
         const match = await isValidPassword(pw, user.password)
 
-        if(user && match){
+        if(user._id && match){
             const token = createJWT(user)
             res.json(token)
         }else{

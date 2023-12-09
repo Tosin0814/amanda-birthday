@@ -1,8 +1,16 @@
 import './Login.css'
 import LoginForm from "../../components/LoginForm/LoginForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
-export default function Login({ updateUser }) {
+export default function Login({ updateUser, user }) {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (user) {
+      navigate('/')
+    }
+  },[])
   return (
     <div className="Login">
       <br /><br /><br />

@@ -1,6 +1,7 @@
 import './LoginForm.css'
 import { useState } from 'react';
 import { login } from '../../utilities/services/users'
+import { useNavigate } from 'react-router-dom';
 
 const defaultState = {
     email: '',
@@ -10,7 +11,7 @@ const defaultState = {
 
 export default function LoginForm({ updateUser }) {
     const [formData, setFormData] = useState(defaultState)
-
+    const navigate = useNavigate()
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
@@ -21,6 +22,7 @@ export default function LoginForm({ updateUser }) {
         try {
             const user = await login(data)
             updateUser(user)
+            navigate('/')
         } catch (err) {
             setFormData({
                 ...formData,

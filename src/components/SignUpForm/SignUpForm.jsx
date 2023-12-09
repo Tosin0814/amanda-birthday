@@ -24,10 +24,10 @@ export default function SignupForm({ updateUser }){
                 email: formData.email,
                 password: formData.password
             }
-            console.log(data)
-            // const user = await signUp(data)
-            // updateUser(user)
-            // navigate('/')
+            // console.log(data)
+            const user = await signUp(data)
+            updateUser(user)
+            navigate('/')
         }catch (err) {
             setFormData({
                 ...formData,
