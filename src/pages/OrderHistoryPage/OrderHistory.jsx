@@ -1,16 +1,23 @@
 import './OrderHistory.css'
-import { checkToken } from "../../utilities/services/users";
+import LoginForm from '../../components/LoginForm/LoginForm';
 
-export default function OrderHistory({}) {
-  async function handleCheckToken(){
-    const expDate = await checkToken()
-    console.log(expDate)
-  }
+export default function OrderHistory({user, updateUser}) {
+  const loginRedirectEndpoint = 'orders'
 
   return (
     <div className="OrderHistory">
-      <br /><br />
-      <h3>OrderHistoryPage</h3>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
-    </div>
+    { !user ?
+      <>
+      <br /><br /><br /><br />
+      <div className='formContainer'>
+        <LoginForm updateUser={updateUser} redirectEndpoint={loginRedirectEndpoint} />
+      </div>
+      </>
+      :
+      <div>
+        <br /><br />
+        <h3>Order History</h3>
+      </div>
+    }
+    </div>  
   );}

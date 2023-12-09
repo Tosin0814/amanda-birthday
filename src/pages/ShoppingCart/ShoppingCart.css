@@ -2,3 +2,10 @@
     height: 100vh;
     padding-top: 20px;
 }
+
+.ShoppingCart .formContainer {
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+}

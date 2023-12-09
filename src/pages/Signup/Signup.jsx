@@ -7,9 +7,10 @@ export default function Signup({updateUser, user}) {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (user._id) {
+    if (user) {
       navigate('/')
     }
+    // eslint-disable-next-line
   },[])
   return (
     <div className='Signup'>
