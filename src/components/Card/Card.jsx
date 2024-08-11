@@ -14,7 +14,7 @@ export default function Card() {
                 I have never met someone who I want to hug, kiss...and choke out all; at the same time &#128518;.
             </p>
             <p>
-                You are so beautiful, funny, charming and full of love; that I am constantly in awe when I experience any amount of time with you.
+                You are so beautiful, smart, funny, charming and full of love; that I am constantly in awe when I experience any amount of time with you.
             </p>
             <p>
                 Your smile melts my "tough" heart, your voice makes me want to say yes all the time and your touch makes me lose all rational thoughts.
@@ -24,7 +24,7 @@ export default function Card() {
             </p>
             <br />
             <p>
-                Love,
+                Love &#128536;,
             </p>
             <p>
                 Precious
