@@ -8,7 +8,7 @@ require('dotenv').config();
 // Connect to the database (after the dotenv)
 require('./config/database');
 
-const userRouter = require('./routes/api/users')
+const photoRouter = require('./routes/api/photos')
 
 const app = express();
 
@@ -20,11 +20,8 @@ if( process.env.NODE_ENV === 'production'){
   app.use(express.static(path.join(__dirname, 'build')));
 }
 
-// Mount Custom Middleware
-app.use(require('./config/checkToken'))
-
 // API routes here
-app.use('/api/users', userRouter)
+app.use('/api/photos', photoRouter)
 
 // "Catch all" route
 app.get('/*', function(req, res) {
