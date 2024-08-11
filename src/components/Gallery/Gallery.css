@@ -4,6 +4,18 @@
     margin-top: 10px;
 }
 
+@media screen and (max-width: 768px) {
+    .Gallery {
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Gallery {
+        height: 350px;
+    }
+}
+
 .Gallery .carousel-inner {
     width: 100%;
     height: 100%;
