@@ -11,7 +11,7 @@ export default function Card() {
                 A basic card could not express how deep and all consuming my love is for you. I needed to create something special <strong>just for you</strong>!&nbsp;&nbsp;&#128150;&#128150;
             </p>
             <p>
-                I have never met someone who I want to hug, kiss...and choke out all; at the same time &#128518;.
+                I have never met someone who I want to hug, kiss...and choke out; all at the same time &#128518;.
             </p>
             <p>
                 You are so beautiful, smart, funny, charming and full of love; that I am constantly in awe when I experience any amount of time with you.
