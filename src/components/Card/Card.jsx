@@ -5,7 +5,7 @@ export default function Card() {
     <div className='Card'>
         <div className='cardContent'>
             <p>
-                Happy birthday, to my best friend, lover and princess!
+                Happy birthday to my best friend, lover and princess!
             </p>
             <p>
                 A basic card could not express how deep and all consuming my love is for you. I needed to create something special <strong>just for you</strong>!&nbsp;&nbsp;&#128150;&#128150;
