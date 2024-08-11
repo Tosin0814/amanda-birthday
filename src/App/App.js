@@ -7,7 +7,6 @@ import { getPhotos } from '../utilities/api/photos';
 export default function App() {
   const [photos, setPhotos] = useState([]);
 
-  console.log(photos)
   const fetchPhotos = async () => {
     try {
       const photos = await getPhotos();

@@ -28,9 +28,6 @@ export default function Home({photos}) {
       </div>
       <Gallery photos={photos} />
       <Card />
-      <footer>
-        tosin2024
-      </footer>
     </div>
   )
 }

@@ -5,7 +5,7 @@ export default function Gallery({ photos }) {
     <div id='imageCarousel' className='Gallery carousel slide' data-bs-ride="carousel">
         <div className="carousel-inner">
             {photos.map((photo, index) => (
-            <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`} data-bs-interval="5000">
+            <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`} data-bs-interval="6000">
                 <img src={photo.url} className="" alt="..."/>
             </div>
             ))}
