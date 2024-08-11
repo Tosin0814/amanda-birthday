@@ -6,6 +6,24 @@
     overflow: auto;
 }
 
+@media screen and (max-width: 768px) {
+    .Home {
+        padding: 20px 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Home {
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .Home {
+        padding: 10px 10px;
+    }
+}
+
 .Home .header {
     width: 100%;
     display: flex;
