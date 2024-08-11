@@ -1,6 +1,6 @@
 .Home {
     height: 100vh;
-    padding: 20px;
+    padding: 20px 100px;
     background: url(https://amanda-data.s3.ca-central-1.amazonaws.com/background.jpg);
     background-size: cover;
     overflow: auto;
