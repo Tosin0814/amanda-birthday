@@ -1,5 +1,22 @@
 .Home {
     height: 100vh;
-    padding-top: 20px;
-    /* text-align: center; */
+    padding: 20px;
+    background: url(https://amanda-data.s3.ca-central-1.amazonaws.com/background.jpg);
+    background-size: cover;
+    overflow: auto;
+}
+
+.Home .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Home .header .Title {
+    color: red;
+    opacity: 0.9;
+    text-align: center;
+    font-size: 60px;
+    font-family: Snell Roundhand, cursive;
+    font-weight: 800;
 }
