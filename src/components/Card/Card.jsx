@@ -20,7 +20,7 @@ export default function Card() {
                 Your smile melts my "tough" heart, your voice makes me want to say yes all the time and your touch makes me lose all rational thoughts.
             </p>
             <p>
-                I am so fortunate to have you in my life and I hope I can be there to continuee watching you grow in strength and wisdom.
+                I am so fortunate to have you in my life and I hope I can be there to continue watching you grow in strength and wisdom.
             </p>
             <br />
             <p>
